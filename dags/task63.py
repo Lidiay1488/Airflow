@@ -29,7 +29,7 @@ hello_file_operator = BashOperator(task_id='hello_file_task', bash_command='./sc
 
 task_http_sensor_check = HttpSensor(
     task_id='http_sensor_check',
-    http_conn_id='http_default',
+    http_conn_id='gb_connect',
     endpoint='',
     request_params={},
     response_check=lambda response: 'httpbin' in response.text,
