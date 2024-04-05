@@ -8,7 +8,7 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 
 def print_hello():
-  print('Hello world from Airflow DAG!')
+  return 'Hello world from Airflow DAG!'
 
 def skipp():
   return 99
