@@ -22,6 +22,6 @@ dag = DAG('task1_sem6', description='Hello World DAG!',
 hello_operator = BashOperator(task_id='hello_task', bash_command='echo Hello from Airflow!', dag=dag)
 skipp_operator = BashOperator(task_id='skip_task', bash_command='exit 99', dag=dag)
 # BashOperator берет код из bash файла
-hello_file_operator = BashOperator(task_id='hello_file_task', bash_command='/opt/airflow/scripts/file1.sh', dag=dag)
+hello_file_operator = BashOperator(task_id='hello_file_task', bash_command='https://github.com/Lidiay1488/Airflow/blob/main/scripts/file1.sh', dag=dag)
 
 hello_operator >> [skipp_operator, hello_file_operator]
