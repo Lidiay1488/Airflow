@@ -1,1 +1,1 @@
-echo -e "\n Hello from Airflow..."
+echo "Hello from Airflow..."
