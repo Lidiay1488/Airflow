@@ -1,7 +1,8 @@
 from datetime import datetime
 from airflow import DAG
-from airflow.operators.dummy_operator import DummyOperator
-from airflow.operators.python_operator import PythonOperator
+# from airflow.operators.dummy_operator import DummyOperator
+# from airflow.operators.python_operator import PythonOperator
+from airflow.operators.python import PythonOperator
 
 def print_hello():
     return 'Hello, Liudmila!'
