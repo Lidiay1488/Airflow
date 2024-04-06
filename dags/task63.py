@@ -32,7 +32,7 @@ task_http_sensor_check = HttpSensor(
     http_conn_id='test_connect',
     endpoint='posts',
     # request_params={},
-    response_check=lambda response: 'httpbin' in response.text,
+    # response_check=lambda response: 'httpbin' in response.text,
     # poke_interval=5,
     dag=dag
 )
