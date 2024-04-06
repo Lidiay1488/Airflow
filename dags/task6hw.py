@@ -10,7 +10,7 @@ def sq_rand_fig():
     num = randint(1, 100)
     return num**2
 
-dag = DAG('sem6_hw', description='Hello world DAG!',
+dag = DAG('sem6_hw', description='seminar6 homework',
           schedule='@daily',
           start_date=datetime(2024, 1, 1), catchup=False)
 
