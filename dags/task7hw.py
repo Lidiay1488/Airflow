@@ -34,7 +34,7 @@ with DAG ('weather_sem7_hw',
           catchup=False
 ) as dag:
     
-    weather_operator = PythonOperator(task_id='take_weather', python_callable=get_weather)
+    weather_operator = PythonOperator(task_id='get_weather', python_callable=get_weather)
     choosing_operator = BranchPythonOperator(task_id='choos_temp', python_callable=choosing_temperature)
     hot_operator = BashOperator(task_id='hot', bash_command='echo тепло')
     cold_operator = BashOperator(task_id='warm', bash_command='echo холодно')
