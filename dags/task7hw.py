@@ -23,9 +23,10 @@ def get_weather(ti = None):
 
 def choosing_temperature(ti):
     cur_temp = ti.xcom_pull(task_ids='get_weather')
-    if cur_temp > 15:
-        return 'hot'
-    return 'cold'
+    return cur_temp
+    # if cur_temp > 15:
+    #     return 'hot'
+    # return 'cold'
 
 with DAG ('weather_sem7_hw',
           description='get weather from openweathermap',
@@ -35,8 +36,10 @@ with DAG ('weather_sem7_hw',
 ) as dag:
     
     weather_operator = PythonOperator(task_id='get_weather', python_callable=get_weather)
-    choosing_operator = BranchPythonOperator(task_id='choos_temp', python_callable=choosing_temperature)
-    hot_operator = BashOperator(task_id='hot', bash_command='echo тепло')
-    cold_operator = BashOperator(task_id='warm', bash_command='echo холодно')
+    temp_op = PythonOperator(task_id='choose', python_callable=choosing_temperature)
+    # choosing_operator = BranchPythonOperator(task_id='choos_temp', python_callable=choosing_temperature)
+    # hot_operator = BashOperator(task_id='hot', bash_command='echo тепло')
+    # cold_operator = BashOperator(task_id='warm', bash_command='echo холодно')
 
-weather_operator >> choosing_operator >> [hot_operator, cold_operator]
+# weather_operator >> choosing_operator >> [hot_operator, cold_operator]
+weather_operator >> temp_op
