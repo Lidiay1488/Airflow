@@ -22,8 +22,8 @@ def get_weather(ti = None):
     ti.xcom_push(key='weather in London', value=cur_temperature_in_cels)
 
 def choosing_temperature(ti):
-    cur_temp = ti.xcom_pull(task_ids='get_weather')
-    return cur_temp
+    cur_temp = ti.xcom_pull(key='weather in London', task_ids='get_weather')
+    return f'{cur_temp = }, {type(cur_temp) = }'
     # if cur_temp > 15:
     #     return 'hot'
     # return 'cold'
